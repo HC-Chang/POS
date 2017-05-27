@@ -13,6 +13,8 @@ namespace POS
     {
         BMS_Form bms_form = new BMS_Form();
 
+        public List<Menu> l_menu = new List<Menu>();
+        
         public Order_Form()
         {
             InitializeComponent();
@@ -27,5 +29,27 @@ namespace POS
         }
 
         #endregion
+
+        public class Menu
+        {
+            public string name { get; set; }
+            public int price { get; set; }
+        }
+
+        private void menu_listBox_MouseDown(object sender, MouseEventArgs e)
+        {
+            // 品項增加
+            if (e.Button == MouseButtons.Left)
+            {
+                count_listBox.Items[menu_listBox.SelectedIndex] = (Convert.ToInt16(count_listBox.Items[menu_listBox.SelectedIndex].ToString()) + 1).ToString();
+            }
+
+            // 品項減少
+            if (e.Button == MouseButtons.Right && Convert.ToInt16( count_listBox.Items[menu_listBox.SelectedIndex].ToString())>0)
+            {
+                count_listBox.Items[menu_listBox.SelectedIndex] = (Convert.ToInt16(count_listBox.Items[menu_listBox.SelectedIndex].ToString()) - 1).ToString();
+            }
+        }
+
     }
 }

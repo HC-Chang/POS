@@ -22,6 +22,16 @@ namespace POS
             this.label1.Text = KeyValue;
         }
 
+        protected override bool ProcessDialogKey(Keys keyData)
+        {
+            // Enter 鍵 -> 確認按鈕
+            if (keyData == Keys.Enter && !this.confirm_button.Focused)
+            {
+                confirm_button_Click(null, null);
+            }
+            return base.ProcessDialogKey(keyData);
+        }
+
         private void confirm_button_Click(object sender, EventArgs e)
         {
             this.Close();

@@ -17,28 +17,45 @@ namespace POS
             
         }
         public Order_Form of3;
-        string s = "";
+        string item = "";
+        string price = "";
 
         private void new_menu_button_Click(object sender, EventArgs e)
         {
-           
-
             KeyInForm kif;
             kif= new KeyInForm("品項");
             kif.ShowDialog();
-            s += kif.key_in_textBox.Text + ",";
+            item = kif.key_in_textBox.Text;
             kif = new KeyInForm("價錢");
             kif.ShowDialog();
-            s += kif.key_in_textBox.Text;
+            price = kif.key_in_textBox.Text;
 
-            text_Form t_f = new text_Form(s);
-            t_f.Show();
+            of3.menu_listBox.Items.Add(item);
+            of3.count_listBox.Items.Add(0);
+
+            //text_Form t_f = new text_Form(item + "-"+price);
+            //t_f.Show();
         }
 
         private void confirm_button_Click(object sender, EventArgs e)
         {
-            of3.label1.Text = s;
             this.Close();
+        }
+
+        protected override bool ProcessDialogKey(Keys keyData)
+        {
+            // Enter 鍵 -> 確認按鈕
+            if (keyData == Keys.Enter && !this.confirm_button.Focused)
+            {
+                confirm_button_Click(null, null);
+            }
+
+            if (keyData == Keys.N && !this.new_menu_button.Focused)
+            {
+                new_menu_button_Click(null, null);
+            }
+
+            return base.ProcessDialogKey(keyData);
         }
     }
 }
