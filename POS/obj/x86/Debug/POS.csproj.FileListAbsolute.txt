@@ -1,0 +1,10 @@
+D:\Code\程式\POS\POS\bin\Debug\POS.exe
+D:\Code\程式\POS\POS\bin\Debug\POS.pdb
+D:\Code\程式\POS\POS\obj\x86\Debug\POS.Properties.Resources.resources
+D:\Code\程式\POS\POS\obj\x86\Debug\POS.csproj.GenerateResource.Cache
+D:\Code\程式\POS\POS\obj\x86\Debug\POS.exe
+D:\Code\程式\POS\POS\obj\x86\Debug\POS.pdb
+D:\Code\程式\POS\POS\obj\x86\Debug\POS.Order_Form.resources
+D:\Code\程式\POS\POS\obj\x86\Debug\POS.BMS_Form.resources
+D:\Code\程式\POS\POS\obj\x86\Debug\POS.KeyInForm.resources
+D:\Code\程式\POS\POS\obj\x86\Debug\POS.text_Form.resources
