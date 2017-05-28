@@ -51,5 +51,15 @@ namespace POS
             }
         }
 
+        // 測試
+        // 測試
+        // 測試
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            // 測試
+            pos_model po = new pos_model();
+            po.Inport_Menu();
+        }
+
     }
 }

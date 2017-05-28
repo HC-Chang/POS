@@ -64,6 +64,7 @@
     <Compile Include="Order_Form.Designer.cs">
       <DependentUpon>Order_Form.cs</DependentUpon>
     </Compile>
+    <Compile Include="pos_model.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="text_Form.cs">
