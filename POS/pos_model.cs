@@ -8,12 +8,12 @@ using System.IO;
 
 namespace POS
 {
-    class pos_model
+    public class pos_model
     {
-        // name price
-        // 項目 金額
+        // type name price
+        // 種類 項目 金額
         List<c_menu_item> l_menu_items = new List<c_menu_item>();
-        int items_count = 0;
+        public int items_count = 0;
 
 
         // 匯入菜單項目
@@ -34,7 +34,6 @@ namespace POS
             StreamReader sr = new StreamReader("config/menu.pos");
             string temp;
             string[] temps;
-            int o = -1;
             while (!sr.EndOfStream)
             {
                 if ((temp = sr.ReadLine()) == "")
@@ -42,10 +41,10 @@ namespace POS
                     continue;
                 }
                 temps = temp.Split(',');
-                if (  int.TryParse(temps[1],out o)  )
-                {
-                    l_menu_items.Add(new c_menu_item(temps[0], temps[1]));
-                }
+                
+                // 增加菜單項目
+                Add_Menu(temps[0], temps[1], temps[2]);
+
             }
             items_count = l_menu_items.Count;
         }
@@ -62,21 +61,58 @@ namespace POS
             string temp = "";
             for (int i = 0; i < items_count; i++)
             {
-                temp += l_menu_items[i].name + "," + l_menu_items[i].price + "\n";
+                temp += l_menu_items[i].type+ ","+ l_menu_items[i].name + "," + l_menu_items[i].price + "\n";
             }
 
+            // 寫入資料 有誤
+            /*************/      
             StreamWriter sw = new StreamWriter("config/menu.pos");
             sw.Write(temp);
             sw.Close();
         }
 
+        // 顯示菜單項目
+        public string [] Show_Menu_Names()
+        {
+            string[] show_data;
+            if (items_count < 1)
+            {
+                show_data = new string[1];
+                show_data[0] = "無資料";
+                return show_data;
+            }
+            show_data = new string[items_count];
+            for (int i = 0; i < items_count; i++)
+            {
+                show_data[i] = l_menu_items[i].name;
+            }
+            return show_data;
+        }
+
+
+        // 增加菜單項目
+        public void Add_Menu(string t,string n,string p)
+        {
+            int err = -1;
+            if (int.TryParse(t, out err) && int.TryParse(p,out err))
+            {
+                l_menu_items.Add(new c_menu_item(t,n,p));
+            }
+            items_count = l_menu_items.Count;
+        }
+
+
+        // type name price
+        // 種類 項目 金額
         public class c_menu_item
         {
+            public int type { get; set; }
             public string name { get; set; }
             public int price { get; set; }
 
-            public c_menu_item(string n, string p)
+            public c_menu_item(string t,string n, string p)
             {
+                type = Convert.ToInt16(t);
                 name = n;
                 price = Convert.ToInt32(p);
             }

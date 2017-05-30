@@ -50,7 +50,8 @@
             this.new_menu_button.Name = "new_menu_button";
             this.new_menu_button.Size = new System.Drawing.Size(246, 23);
             this.new_menu_button.TabIndex = 0;
-            this.new_menu_button.Text = "新增";
+            this.new_menu_button.TabStop = false;
+            this.new_menu_button.Text = "新增 (N)";
             this.new_menu_button.UseVisualStyleBackColor = true;
             this.new_menu_button.Click += new System.EventHandler(this.new_menu_button_Click);
             // 
@@ -73,6 +74,7 @@
             this.Controls.Add(this.gb_menu);
             this.Name = "BMS_Form";
             this.Text = "後臺管理系統";
+            this.Load += new System.EventHandler(this.BMS_Form_Load);
             this.gb_menu.ResumeLayout(false);
             this.ResumeLayout(false);
 

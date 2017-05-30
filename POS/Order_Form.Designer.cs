@@ -97,8 +97,8 @@
             this.bms_ts_button.Image = ((System.Drawing.Image)(resources.GetObject("bms_ts_button.Image")));
             this.bms_ts_button.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.bms_ts_button.Name = "bms_ts_button";
-            this.bms_ts_button.Size = new System.Drawing.Size(84, 22);
-            this.bms_ts_button.Text = "後臺管理系統";
+            this.bms_ts_button.Size = new System.Drawing.Size(102, 22);
+            this.bms_ts_button.Text = "後臺管理系統 (B)";
             this.bms_ts_button.Click += new System.EventHandler(this.bms_ts_button_Click);
             // 
             // toolStripButton1
@@ -110,7 +110,6 @@
             this.toolStripButton1.Name = "toolStripButton1";
             this.toolStripButton1.Size = new System.Drawing.Size(60, 22);
             this.toolStripButton1.Text = "確認點餐";
-            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
             // toolStripSeparator3
             // 
@@ -132,38 +131,42 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.count_listBox);
-            this.splitContainer1.Size = new System.Drawing.Size(535, 303);
+            this.splitContainer1.Size = new System.Drawing.Size(535, 337);
             this.splitContainer1.SplitterDistance = 192;
             this.splitContainer1.TabIndex = 3;
             // 
             // menu_listBox
             // 
+            this.menu_listBox.Font = new System.Drawing.Font("新細明體", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.menu_listBox.FormattingEnabled = true;
-            this.menu_listBox.ItemHeight = 12;
+            this.menu_listBox.ItemHeight = 27;
             this.menu_listBox.Location = new System.Drawing.Point(3, 3);
             this.menu_listBox.Name = "menu_listBox";
-            this.menu_listBox.Size = new System.Drawing.Size(182, 292);
+            this.menu_listBox.Size = new System.Drawing.Size(182, 328);
             this.menu_listBox.TabIndex = 2;
             this.menu_listBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.menu_listBox_MouseDown);
             // 
             // count_listBox
             // 
+            this.count_listBox.Font = new System.Drawing.Font("新細明體", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.count_listBox.FormattingEnabled = true;
-            this.count_listBox.ItemHeight = 12;
+            this.count_listBox.ItemHeight = 27;
             this.count_listBox.Location = new System.Drawing.Point(4, 4);
             this.count_listBox.Name = "count_listBox";
-            this.count_listBox.Size = new System.Drawing.Size(328, 292);
+            this.count_listBox.Size = new System.Drawing.Size(328, 328);
             this.count_listBox.TabIndex = 0;
             // 
             // Order_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(535, 328);
+            this.ClientSize = new System.Drawing.Size(535, 362);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.toolStrip1);
             this.Name = "Order_Form";
             this.Text = "Form1";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Order_Form_FormClosing);
+            this.Load += new System.EventHandler(this.Order_Form_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.splitContainer1.Panel1.ResumeLayout(false);
