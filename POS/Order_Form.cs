@@ -114,9 +114,7 @@ namespace POS
 
         private void Order_Form_FormClosing(object sender, FormClosingEventArgs e)
         {
-            // 無法寫入
-            /*******************/
-//            model.Export_Menu();
+            model.Export_Menu();
 
             if (MessageBox.Show("即將關閉，是否繼續？", "確認", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {

@@ -22,7 +22,7 @@ namespace POS
         // KeyIn
         KeyInForm kif;
         string[] adds = new string[] { "種類", "品項", "價錢" };
-        string[] keep_datas;
+        string[] keep_datas = new string [3];
 
         // 新增菜單資料
         private void new_menu_button_Click(object sender, EventArgs e)

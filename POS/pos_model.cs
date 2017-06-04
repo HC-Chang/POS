@@ -46,6 +46,7 @@ namespace POS
                 Add_Menu(temps[0], temps[1], temps[2]);
 
             }
+            sr.Close();
             items_count = l_menu_items.Count;
         }
 
@@ -64,11 +65,12 @@ namespace POS
                 temp += l_menu_items[i].type+ ","+ l_menu_items[i].name + "," + l_menu_items[i].price + "\n";
             }
 
-            // 寫入資料 有誤
-            /*************/      
+
+         //       File.WriteAllText("config/menu.pos", temp);
             StreamWriter sw = new StreamWriter("config/menu.pos");
             sw.Write(temp);
             sw.Close();
+
         }
 
         // 顯示菜單項目
