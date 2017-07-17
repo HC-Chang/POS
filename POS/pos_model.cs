@@ -12,12 +12,12 @@ namespace POS
     {
         // type name price
         // 種類 項目 金額
-        List<c_menu_item> l_menu_items = new List<c_menu_item>();
-        public int items_count = 0;
+        public static List<c_menu_item> l_menu_items = new List<c_menu_item>();
+        public static int items_count = 0;
 
 
         // 匯入菜單項目
-        public void Inport_Menu()
+        public void Import_Menu()
         {
             // 確認檔案
             if (!File.Exists("config/menu.pos"))
@@ -91,19 +91,26 @@ namespace POS
             return show_data;
         }
 
-
-        // 增加菜單項目
-        public void Add_Menu(string t,string n,string p)
+        public static class Menu_Management
         {
-            int err = -1;
-            if (int.TryParse(t, out err) && int.TryParse(p,out err))
+            // 增加菜單項目
+            public static void Add_Menu(string t, string n, string p)
             {
-                l_menu_items.Add(new c_menu_item(t,n,p));
+                if(l_menu_items == null)
+                {
+                    l_menu_items = new List<c_menu_item>();
+                }
+
+                int err = -1;
+                if (int.TryParse(t, out err) && int.TryParse(p, out err))
+                {
+                    l_menu_items.Add(new c_menu_item(t, n, p));
+                }
+                items_count = l_menu_items.Count;
             }
-            items_count = l_menu_items.Count;
         }
 
-
+       
         // type name price
         // 種類 項目 金額
         public class c_menu_item

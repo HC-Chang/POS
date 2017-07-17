@@ -41,7 +41,7 @@ namespace POS
         private void Order_Form_Load(object sender, EventArgs e)
         {
             // 匯入資料
-            model.Inport_Menu();
+            model.Import_Menu();
 
             // 資料載入
             menu_datas = model.Show_Menu_Names();
