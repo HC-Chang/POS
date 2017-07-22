@@ -18,11 +18,17 @@ namespace POS
 
         // Order Form
         public Order_Form of3;
+        pos_model model;
 
-        // KeyIn
+        // KeyIn Form
         KeyInForm kif;
         string[] adds = new string[] { "種類", "品項", "價錢" };
         string[] keep_datas = new string [3];
+
+        // List Form
+        list_Form lf;
+
+        #region Menu
 
         // 新增菜單資料
         private void new_menu_button_Click(object sender, EventArgs e)
@@ -34,27 +40,51 @@ namespace POS
             add_data();
 
             // 資料進入資料庫
-            of3.model.Add_Menu(keep_datas[0], keep_datas[1], keep_datas[2]);
+            model.Add_Menu(keep_datas[0], keep_datas[1], keep_datas[2]);
             
             //text_Form t_f = new text_Form(item + "-"+price);
             //t_f.Show();
         }
 
-        // 確定資料
+        // 刪除
+        private void delete_menu_button_Click(object sender, EventArgs e)
+        {
+            Object[] o = new Object[] {model.items_count, model.Show_Menu_Types(), model.Show_Menu_Names(), model.Show_Menu_Price() };
+            lf = new list_Form(o);
+            lf.ShowDialog();
+        }
+
+        // 修改
+
+        // 檢視
+
+        #endregion
+
+
+
+        #region Confirm / Cancel Button
+
+        // 確定 button
         private void confirm_button_Click(object sender, EventArgs e)
         {
-            // 換方法
-            /***********/
-             
             // 資料載入
-            of3.menu_datas = of3.model.Show_Menu_Names();
+            of3._Model = model;
+            of3.menu_datas = model.Show_Menu_Names();
 
             // 資料顯示
             of3.display_data();
-
+            
             // 關閉視窗
             this.Close();
         }
+
+        // 取消 button
+        private void cancel_button_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+#endregion
 
         // 快捷鍵
         protected override bool ProcessDialogKey(Keys keyData)
@@ -71,8 +101,20 @@ namespace POS
                 new_menu_button_Click(null, null);
             }
 
+            // D 鍵 -> 刪除
+            if (keyData == Keys.D && !this.new_menu_button.Focused)
+            {
+                delete_menu_button_Click(null, null);
+            }
+
+
+
             return base.ProcessDialogKey(keyData);
         }
+
+
+
+        #region KeyInForm
 
         // 清除資料
         private void clean_data()
@@ -94,11 +136,17 @@ namespace POS
             }
         }
 
+#endregion
+
+
+
         // Form 載入
         private void BMS_Form_Load(object sender, EventArgs e)
         {
-            // 初始化暫存陣列
-         //   keep_datas = new string[adds.Length];
+            // 初始化 model
+            model = of3._Model;
         }
+
+
     }
 }

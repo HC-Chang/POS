@@ -31,11 +31,14 @@
             this.gb_menu = new System.Windows.Forms.GroupBox();
             this.new_menu_button = new System.Windows.Forms.Button();
             this.confirm_button = new System.Windows.Forms.Button();
+            this.cancel_button = new System.Windows.Forms.Button();
+            this.delete_menu_button = new System.Windows.Forms.Button();
             this.gb_menu.SuspendLayout();
             this.SuspendLayout();
             // 
             // gb_menu
             // 
+            this.gb_menu.Controls.Add(this.delete_menu_button);
             this.gb_menu.Controls.Add(this.new_menu_button);
             this.gb_menu.Location = new System.Drawing.Point(13, 13);
             this.gb_menu.Name = "gb_menu";
@@ -57,7 +60,7 @@
             // 
             // confirm_button
             // 
-            this.confirm_button.Location = new System.Drawing.Point(197, 227);
+            this.confirm_button.Location = new System.Drawing.Point(116, 227);
             this.confirm_button.Name = "confirm_button";
             this.confirm_button.Size = new System.Drawing.Size(75, 23);
             this.confirm_button.TabIndex = 1;
@@ -65,11 +68,33 @@
             this.confirm_button.UseVisualStyleBackColor = true;
             this.confirm_button.Click += new System.EventHandler(this.confirm_button_Click);
             // 
+            // cancel_button
+            // 
+            this.cancel_button.Location = new System.Drawing.Point(197, 227);
+            this.cancel_button.Name = "cancel_button";
+            this.cancel_button.Size = new System.Drawing.Size(75, 23);
+            this.cancel_button.TabIndex = 2;
+            this.cancel_button.Text = "取消";
+            this.cancel_button.UseVisualStyleBackColor = true;
+            this.cancel_button.Click += new System.EventHandler(this.cancel_button_Click);
+            // 
+            // delete_menu_button
+            // 
+            this.delete_menu_button.Location = new System.Drawing.Point(7, 51);
+            this.delete_menu_button.Name = "delete_menu_button";
+            this.delete_menu_button.Size = new System.Drawing.Size(246, 23);
+            this.delete_menu_button.TabIndex = 1;
+            this.delete_menu_button.TabStop = false;
+            this.delete_menu_button.Text = "刪除 (D)";
+            this.delete_menu_button.UseVisualStyleBackColor = true;
+            this.delete_menu_button.Click += new System.EventHandler(this.delete_menu_button_Click);
+            // 
             // BMS_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 262);
+            this.Controls.Add(this.cancel_button);
             this.Controls.Add(this.confirm_button);
             this.Controls.Add(this.gb_menu);
             this.Name = "BMS_Form";
@@ -85,5 +110,7 @@
         private System.Windows.Forms.GroupBox gb_menu;
         private System.Windows.Forms.Button new_menu_button;
         private System.Windows.Forms.Button confirm_button;
+        private System.Windows.Forms.Button cancel_button;
+        private System.Windows.Forms.Button delete_menu_button;
     }
 }

@@ -11,7 +11,7 @@ namespace POS
 {
     public partial class Order_Form : Form
     {
-        public pos_model model = new pos_model();
+        public pos_model _Model = new pos_model();
         BMS_Form bms_form = new BMS_Form();
 
         public string[] menu_datas;
@@ -41,10 +41,10 @@ namespace POS
         private void Order_Form_Load(object sender, EventArgs e)
         {
             // 匯入資料
-            model.Import_Menu();
+            _Model.Import_Menu();
 
             // 資料載入
-            menu_datas = model.Show_Menu_Names();
+            menu_datas = _Model.Show_Menu_Names();
 
             // 顯示資料
             display_data();
@@ -92,7 +92,7 @@ namespace POS
         {
             menu_listBox.Items.Clear();
             count_listBox.Items.Clear();
-            for (int i = 0; i < model.items_count; i++)
+            for (int i = 0; i < _Model.items_count; i++)
             {
                 menu_listBox.Items.Add(menu_datas[i]);
                 count_listBox.Items.Add(0);
@@ -114,7 +114,7 @@ namespace POS
 
         private void Order_Form_FormClosing(object sender, FormClosingEventArgs e)
         {
-            model.Export_Menu();
+            _Model.Export_Menu();
 
             if (MessageBox.Show("即將關閉，是否繼續？", "確認", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {

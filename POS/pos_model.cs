@@ -12,8 +12,8 @@ namespace POS
     {
         // type name price
         // 種類 項目 金額
-        public static List<c_menu_item> l_menu_items = new List<c_menu_item>();
-        public static int items_count = 0;
+        List<c_menu_item> l_menu_items = new List<c_menu_item>();
+        public  int items_count = 0;
 
 
         // 匯入菜單項目
@@ -73,6 +73,26 @@ namespace POS
 
         }
 
+
+
+        // 顯示菜單類型
+        public string[] Show_Menu_Types()
+        {
+            string[] show_data;
+            if (items_count < 1)
+            {
+                show_data = new string[1];
+                show_data[0] = "無資料";
+                return show_data;
+            }
+            show_data = new string[items_count];
+            for (int i = 0; i < items_count; i++)
+            {
+                show_data[i] = l_menu_items[i].type.ToString();
+            }
+            return show_data;
+        }
+
         // 顯示菜單項目
         public string [] Show_Menu_Names()
         {
@@ -91,24 +111,42 @@ namespace POS
             return show_data;
         }
 
-        public static class Menu_Management
+        // 顯示菜單價格
+        public string[] Show_Menu_Price()
         {
-            // 增加菜單項目
-            public static void Add_Menu(string t, string n, string p)
+            string[] show_data;
+            if (items_count < 1)
             {
-                if(l_menu_items == null)
-                {
-                    l_menu_items = new List<c_menu_item>();
-                }
-
-                int err = -1;
-                if (int.TryParse(t, out err) && int.TryParse(p, out err))
-                {
-                    l_menu_items.Add(new c_menu_item(t, n, p));
-                }
-                items_count = l_menu_items.Count;
+                show_data = new string[1];
+                show_data[0] = "無資料";
+                return show_data;
             }
+            show_data = new string[items_count];
+            for (int i = 0; i < items_count; i++)
+            {
+                show_data[i] = l_menu_items[i].price.ToString();
+            }
+            return show_data;
         }
+
+
+
+        // 增加菜單項目
+        public void Add_Menu(string t, string n, string p)
+        {
+            if(l_menu_items == null)
+            {
+                l_menu_items = new List<c_menu_item>();
+            }
+
+            int err = -1;
+            if (int.TryParse(t, out err) && int.TryParse(p, out err))
+            {
+                l_menu_items.Add(new c_menu_item(t, n, p));
+            }
+            items_count = l_menu_items.Count;
+        }
+        
 
        
         // type name price
