@@ -67,9 +67,10 @@ namespace POS
         // 確定 button
         private void confirm_button_Click(object sender, EventArgs e)
         {
-            // 資料載入
-            of3._Model = model;
-            of3.menu_datas = model.Show_Menu_Names();
+            // ***
+            // 資料載入 (list 為參考型別 -> 不用替換)
+            //of3._Model = model;
+            // ***
 
             // 資料顯示
             of3.display_data();

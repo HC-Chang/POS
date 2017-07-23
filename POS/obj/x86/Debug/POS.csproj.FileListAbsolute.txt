@@ -33,3 +33,5 @@ D:\Code\github\POS\POS\obj\x86\Debug\POS.text_Form.resources
 D:\Code\github\POS\POS\obj\x86\Debug\POS.csproj.GenerateResource.Cache
 D:\Git\POS\POS\bin\Debug\POS.exe.config
 D:\Git\POS\POS\obj\x86\Debug\POS.list_Form.resources
+D:\Code\github\POS\POS\bin\Debug\POS.exe.config
+D:\Code\github\POS\POS\obj\x86\Debug\POS.list_Form.resources

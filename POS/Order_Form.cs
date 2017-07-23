@@ -92,6 +92,10 @@ namespace POS
         {
             menu_listBox.Items.Clear();
             count_listBox.Items.Clear();
+
+            // 重新分配陣列大小
+            menu_datas = _Model.Show_Menu_Names();
+
             for (int i = 0; i < _Model.items_count; i++)
             {
                 menu_listBox.Items.Add(menu_datas[i]);
