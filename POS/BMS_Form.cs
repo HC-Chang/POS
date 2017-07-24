@@ -17,7 +17,7 @@ namespace POS
         }
 
         // Order Form
-        public Order_Form of3;
+        public Order_Form of;
         pos_model model;
 
         // KeyIn Form
@@ -49,12 +49,17 @@ namespace POS
         // 刪除
         private void delete_menu_button_Click(object sender, EventArgs e)
         {
-            Object[] o = new Object[] {model.items_count, model.Show_Menu_Types(), model.Show_Menu_Names(), model.Show_Menu_Price() };
-            lf = new list_Form(o);
+            lf = new list_Form(model,false);
             lf.ShowDialog();
         }
 
         // 修改
+        private void modify_menu_button_Click(object sender, EventArgs e)
+        {
+            lf = new list_Form(model,true);
+            lf.ShowDialog();
+        }
+
 
         // 檢視
 
@@ -73,7 +78,7 @@ namespace POS
             // ***
 
             // 資料顯示
-            of3.display_data();
+            of.display_data();
             
             // 關閉視窗
             this.Close();
@@ -85,7 +90,7 @@ namespace POS
             this.Close();
         }
 
-#endregion
+        #endregion
 
         // 快捷鍵
         protected override bool ProcessDialogKey(Keys keyData)
@@ -108,6 +113,11 @@ namespace POS
                 delete_menu_button_Click(null, null);
             }
 
+            // M 鍵 -> 修改
+            if (keyData == Keys.M && !this.new_menu_button.Focused)
+            {
+                modify_menu_button_Click(null, null);
+            }
 
 
             return base.ProcessDialogKey(keyData);
@@ -137,7 +147,7 @@ namespace POS
             }
         }
 
-#endregion
+        #endregion
 
 
 
@@ -145,7 +155,7 @@ namespace POS
         private void BMS_Form_Load(object sender, EventArgs e)
         {
             // 初始化 model
-            model = of3._Model;
+            model = of._Model;
         }
 
 

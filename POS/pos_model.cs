@@ -147,6 +147,21 @@ namespace POS
             items_count = l_menu_items.Count;
         }
         
+        // 移除菜單像目
+        public void Remove_Menu(List<int> r_indeices)
+        {
+            if(r_indeices == null)
+            {
+                return;
+            }
+
+            for (int i = r_indeices.Count-1 ; i>-1 ;i--)
+            {
+                l_menu_items.RemoveAt(r_indeices[i]);
+            }
+
+            items_count = l_menu_items.Count;
+        }
 
        
         // type name price

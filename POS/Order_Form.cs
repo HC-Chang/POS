@@ -20,7 +20,7 @@ namespace POS
         public Order_Form()
         {
             InitializeComponent();
-            bms_form.of3 = this;
+            bms_form.of = this;
         }
 
 
@@ -116,6 +116,7 @@ namespace POS
             return base.ProcessDialogKey(keyData);
         }
 
+        // 關閉視窗
         private void Order_Form_FormClosing(object sender, FormClosingEventArgs e)
         {
             _Model.Export_Menu();
