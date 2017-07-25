@@ -60,6 +60,8 @@ namespace POS
 
         #endregion
 
+
+
         // bug - 須 Focus 項目上
         /********************/
         // 項目 增加/減少

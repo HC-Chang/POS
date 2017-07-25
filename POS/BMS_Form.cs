@@ -34,10 +34,10 @@ namespace POS
         private void new_menu_button_Click(object sender, EventArgs e)
         {
             // 清除暫存資料
-            clean_data();
+            KIF_clean_data();
 
             // 新增菜單資料
-            add_data();
+            KIF_add_data();
 
             // 資料進入資料庫
             model.Add_Menu(keep_datas[0], keep_datas[1], keep_datas[2]);
@@ -128,7 +128,7 @@ namespace POS
         #region KeyInForm
 
         // 清除資料
-        private void clean_data()
+        private void KIF_clean_data()
         {
             for (int i = 0; i < keep_datas.Length; i++)
             {
@@ -137,7 +137,7 @@ namespace POS
         }
 
         // 加入資料
-        private void add_data()
+        private void KIF_add_data()
         {
             for (int i = 0; i < adds.Length; i++)
             {

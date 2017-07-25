@@ -55,7 +55,7 @@ namespace POS
         // 確認 button
         private void confirm_button_Click(object sender, EventArgs e)
         {
-            List<int> selected_indices = GetCheckedIndices();
+            int [] selected_indices = GetCheckedIndices();
 
             if (selected_indices == null)
             {
@@ -63,17 +63,14 @@ namespace POS
                 return;
             }
 
-            /*********************/
-            // bug
-
             // Remove
             if (!RorM)
             {
                 string delete_data_string = "確定刪除資料？\n\n";
 
-                for (int i = 0; i < checkedListBox1.Items.Count; i++)
+                for (int i = 0; i < selected_indices.Length; i++)
                 {
-                    delete_data_string += checkedListBox1.Items[i].ToString() + "\n";
+                    delete_data_string += checkedListBox1.Items[selected_indices[i]].ToString() + "\n";
                 }
 
                 if (MessageBox.Show(delete_data_string, "確認", MessageBoxButtons.YesNo) == DialogResult.Yes)
@@ -85,11 +82,18 @@ namespace POS
                     this.Close();
                 }
 
-                selected_indices.Clear();
             }
+
             // Modify
             else
             {
+                // KeyIn Form
+                KeyInForm kif;
+                string[] adds = new string[] { "種類", "品項", "價錢" };
+                string[] keep_datas = new string[3];
+
+
+                model.Modify_Menu(selected_indices[0],keep_datas[0],keep_datas[1],keep_datas[2]);
 
             }
 
@@ -98,28 +102,29 @@ namespace POS
             
         }
 
-        // 重新設定項目 button
-        private void reset_button_Click(object sender, EventArgs e)
-        {
-            List<int> indices = GetCheckedIndices();
-            for (int i = 0; i < indices.Count; i++)
-            {
-                checkedListBox1.SetItemChecked(indices[i], false);
-            }
-            checkedListBox1.ClearSelected();
-        }
-
         // 取消 button
         private void cancel_button_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        // 重新設定項目 button
+        private void reset_button_Click(object sender, EventArgs e)
+        {
+            int[] indices = GetCheckedIndices();
+            for (int i = 0; i < indices.Length; i++)
+            {
+                checkedListBox1.SetItemChecked(indices[i], false);
+            }
+            //checkedListBox1.ClearSelected();
+        }
+
 
 
         // Get Checked Indices
-        private List<int> GetCheckedIndices()
+        private int [] GetCheckedIndices()
         {
+            int [] index ;
             List<int> indices = new List<int>();
             for (int i = 0; i < checkedListBox1.Items.Count; i++)
             {
@@ -128,7 +133,19 @@ namespace POS
                     indices.Add(i);
                 }
             }
-            return indices;
+
+            index = indices.ToArray();
+            return index;
+        }
+
+        // 單選機制
+        private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Modify
+            if (RorM)
+            {
+                reset_button_Click(sender, e); 
+            }
         }
     }
 }

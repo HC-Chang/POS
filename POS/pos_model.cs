@@ -148,19 +148,31 @@ namespace POS
         }
         
         // 移除菜單像目
-        public void Remove_Menu(List<int> r_indeices)
+        public void Remove_Menu(int [] r_indeices)
         {
             if(r_indeices == null)
             {
                 return;
             }
 
-            for (int i = r_indeices.Count-1 ; i>-1 ;i--)
+            for (int i = r_indeices.Length-1 ; i>-1 ;i--)
             {
                 l_menu_items.RemoveAt(r_indeices[i]);
             }
 
             items_count = l_menu_items.Count;
+        }
+
+        // 修改菜單項目
+        public void Modify_Menu(int i,string t, string n, string p)
+        {
+            if(l_menu_items[i] == null)
+            {
+                MessageBox.Show("修改項目有誤！！！", "錯誤");
+                return;
+            }
+
+            l_menu_items[i] = new c_menu_item(t,n,p);
         }
 
        
