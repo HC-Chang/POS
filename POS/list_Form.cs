@@ -19,9 +19,14 @@ namespace POS
         // Modify -> True
         bool RorM;
 
+        // KeyIn Form
+        KeyInForm kif;
+        string[] adds = new string[] { "種類", "品項", "價錢" };
+        string[] keep_datas = new string[3];
 
 
-        // 資料匯入
+
+        // 初始化 -> 資料匯入
         public list_Form(pos_model _Model,bool _RorM)
         {
             InitializeComponent();
@@ -51,6 +56,8 @@ namespace POS
         }
 
 
+
+        #region button
 
         // 確認 button
         private void confirm_button_Click(object sender, EventArgs e)
@@ -87,19 +94,23 @@ namespace POS
             // Modify
             else
             {
-                // KeyIn Form
-                KeyInForm kif;
-                string[] adds = new string[] { "種類", "品項", "價錢" };
-                string[] keep_datas = new string[3];
+                // 清除資料
+                KIF_clean_data();
 
+                // 增加資料
+                KIF_add_data();
 
-                model.Modify_Menu(selected_indices[0],keep_datas[0],keep_datas[1],keep_datas[2]);
+                // 確認資料
+                if (!kif.IfCancel)
+                {
+                    // 修改資料
+                    model.Modify_Menu(selected_indices[0], keep_datas[0], keep_datas[1], keep_datas[2]);
+                }
+
+                this.Close();
 
             }
-
-           
-
-            
+      
         }
 
         // 取消 button
@@ -118,6 +129,8 @@ namespace POS
             }
             //checkedListBox1.ClearSelected();
         }
+
+        #endregion
 
 
 
@@ -147,5 +160,36 @@ namespace POS
                 reset_button_Click(sender, e); 
             }
         }
+
+
+
+        #region KeyInForm
+
+        // 清除資料
+        private void KIF_clean_data()
+        {
+            for (int i = 0; i < keep_datas.Length; i++)
+            {
+                keep_datas[i] = "";
+            }
+        }
+
+        // 加入資料
+        private void KIF_add_data()
+        {
+            for (int i = 0; i < adds.Length; i++)
+            {
+                kif = new KeyInForm(adds[i]);
+                kif.ShowDialog();
+                keep_datas[i] = kif.key_in_textBox.Text;
+
+                if(kif.IfCancel == true)
+                {
+                    return;
+                }
+            }
+        }
+
+        #endregion
     }
 }

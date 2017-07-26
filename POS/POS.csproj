@@ -55,6 +55,12 @@
     <Compile Include="BMS_Form.Designer.cs">
       <DependentUpon>BMS_Form.cs</DependentUpon>
     </Compile>
+    <Compile Include="inspect_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="inspect_Form.Designer.cs">
+      <DependentUpon>inspect_Form.cs</DependentUpon>
+    </Compile>
     <Compile Include="KeyInForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -84,6 +90,9 @@
     </Compile>
     <EmbeddedResource Include="BMS_Form.resx">
       <DependentUpon>BMS_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="inspect_Form.resx">
+      <DependentUpon>inspect_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="KeyInForm.resx">
       <DependentUpon>KeyInForm.cs</DependentUpon>

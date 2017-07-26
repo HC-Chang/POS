@@ -11,17 +11,22 @@ namespace POS
 {
     public partial class KeyInForm : Form
     {
+        // 初始化
         public KeyInForm()
         {
             InitializeComponent();
         }
 
+        // 初始化
         public KeyInForm(string KeyValue)
         {
             InitializeComponent();
             this.label1.Text = KeyValue;
         }
 
+
+
+        // 快捷鍵
         protected override bool ProcessDialogKey(Keys keyData)
         {
             // Enter 鍵 -> 確認按鈕
@@ -32,9 +37,24 @@ namespace POS
             return base.ProcessDialogKey(keyData);
         }
 
+        public bool IfCancel = false;
+
+        #region button
+
+        // 確認
         private void confirm_button_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+
+        // 取消
+        private void cancel_button_Click(object sender, EventArgs e)
+        {
+            IfCancel = true;
+            this.Close();
+        }
+
+        #endregion
+
     }
 }

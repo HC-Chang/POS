@@ -31,6 +31,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.key_in_textBox = new System.Windows.Forms.TextBox();
             this.confirm_button = new System.Windows.Forms.Button();
+            this.cancel_button = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -51,19 +52,30 @@
             // 
             // confirm_button
             // 
-            this.confirm_button.Location = new System.Drawing.Point(197, 62);
+            this.confirm_button.Location = new System.Drawing.Point(106, 62);
             this.confirm_button.Name = "confirm_button";
-            this.confirm_button.Size = new System.Drawing.Size(75, 23);
+            this.confirm_button.Size = new System.Drawing.Size(80, 23);
             this.confirm_button.TabIndex = 2;
-            this.confirm_button.Text = "確認";
+            this.confirm_button.Text = "確定";
             this.confirm_button.UseVisualStyleBackColor = true;
             this.confirm_button.Click += new System.EventHandler(this.confirm_button_Click);
+            // 
+            // cancel_button
+            // 
+            this.cancel_button.Location = new System.Drawing.Point(192, 62);
+            this.cancel_button.Name = "cancel_button";
+            this.cancel_button.Size = new System.Drawing.Size(80, 23);
+            this.cancel_button.TabIndex = 3;
+            this.cancel_button.Text = "取消";
+            this.cancel_button.UseVisualStyleBackColor = true;
+            this.cancel_button.Click += new System.EventHandler(this.cancel_button_Click);
             // 
             // KeyInForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 97);
+            this.Controls.Add(this.cancel_button);
             this.Controls.Add(this.confirm_button);
             this.Controls.Add(this.key_in_textBox);
             this.Controls.Add(this.label1);
@@ -80,5 +92,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button confirm_button;
         public System.Windows.Forms.TextBox key_in_textBox;
+        private System.Windows.Forms.Button cancel_button;
     }
 }

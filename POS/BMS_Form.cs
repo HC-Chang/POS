@@ -39,11 +39,13 @@ namespace POS
             // 新增菜單資料
             KIF_add_data();
 
-            // 資料進入資料庫
-            model.Add_Menu(keep_datas[0], keep_datas[1], keep_datas[2]);
-            
-            //text_Form t_f = new text_Form(item + "-"+price);
-            //t_f.Show();
+            // 確認資料
+            if(!kif.IfCancel)
+            {
+                // 資料進入資料庫
+                model.Add_Menu(keep_datas[0], keep_datas[1], keep_datas[2]);
+            }
+
         }
 
         // 刪除
@@ -60,8 +62,30 @@ namespace POS
             lf.ShowDialog();
         }
 
-
         // 檢視
+        private void inspect_menu_button_Click(object sender, EventArgs e)
+        {
+            // Inspect Form
+            inspect_Form i_form = new inspect_Form();
+
+            i_form.dataGridView1.Columns.Add("_index","編號");
+
+            for (int i =0; i<adds.Length;i++)
+            {
+                i_form.dataGridView1.Columns.Add("_"+adds[i],adds[i]);
+            }
+
+            DataGridViewRowCollection rows = i_form.dataGridView1.Rows;
+            string[] t = model.Show_Menu_Types();
+            string[] n = model.Show_Menu_Names();
+            string[] p = model.Show_Menu_Prices();
+
+            for (int i =0; i<model.items_count;i++)
+            {
+                rows.Add(new object[] {i+1, t[i], n[i], p[i] });
+            }
+            i_form.ShowDialog();
+        }
 
         #endregion
 
@@ -92,6 +116,8 @@ namespace POS
 
         #endregion
 
+
+
         // 快捷鍵
         protected override bool ProcessDialogKey(Keys keyData)
         {
@@ -108,16 +134,23 @@ namespace POS
             }
 
             // D 鍵 -> 刪除
-            if (keyData == Keys.D && !this.new_menu_button.Focused)
+            if (keyData == Keys.D && !this.delete_menu_button.Focused)
             {
                 delete_menu_button_Click(null, null);
             }
 
             // M 鍵 -> 修改
-            if (keyData == Keys.M && !this.new_menu_button.Focused)
+            if (keyData == Keys.M && !this.modify_menu_button.Focused)
             {
                 modify_menu_button_Click(null, null);
             }
+
+            // I 鍵 -> 檢視
+            if (keyData == Keys.I && !this.inspect_menu_button.Focused)
+            {
+                inspect_menu_button_Click(null, null);
+            }
+
 
 
             return base.ProcessDialogKey(keyData);
@@ -144,6 +177,11 @@ namespace POS
                 kif = new KeyInForm(adds[i]);
                 kif.ShowDialog();
                 keep_datas[i] = kif.key_in_textBox.Text;
+
+                if (kif.IfCancel == true)
+                {
+                    return;
+                }
             }
         }
 
@@ -158,6 +196,6 @@ namespace POS
             model = of._Model;
         }
 
-
+       
     }
 }

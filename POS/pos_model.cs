@@ -112,7 +112,7 @@ namespace POS
         }
 
         // 顯示菜單價格
-        public string[] Show_Menu_Price()
+        public string[] Show_Menu_Prices()
         {
             string[] show_data;
             if (items_count < 1)

@@ -34,17 +34,19 @@
             this.new_menu_button = new System.Windows.Forms.Button();
             this.confirm_button = new System.Windows.Forms.Button();
             this.cancel_button = new System.Windows.Forms.Button();
+            this.inspect_menu_button = new System.Windows.Forms.Button();
             this.gb_menu.SuspendLayout();
             this.SuspendLayout();
             // 
             // gb_menu
             // 
+            this.gb_menu.Controls.Add(this.inspect_menu_button);
             this.gb_menu.Controls.Add(this.modify_menu_button);
             this.gb_menu.Controls.Add(this.delete_menu_button);
             this.gb_menu.Controls.Add(this.new_menu_button);
             this.gb_menu.Location = new System.Drawing.Point(13, 13);
             this.gb_menu.Name = "gb_menu";
-            this.gb_menu.Size = new System.Drawing.Size(259, 133);
+            this.gb_menu.Size = new System.Drawing.Size(259, 144);
             this.gb_menu.TabIndex = 0;
             this.gb_menu.TabStop = false;
             this.gb_menu.Text = "菜單";
@@ -102,6 +104,17 @@
             this.cancel_button.UseVisualStyleBackColor = true;
             this.cancel_button.Click += new System.EventHandler(this.cancel_button_Click);
             // 
+            // inspect_menu_button
+            // 
+            this.inspect_menu_button.Location = new System.Drawing.Point(6, 109);
+            this.inspect_menu_button.Name = "inspect_menu_button";
+            this.inspect_menu_button.Size = new System.Drawing.Size(246, 23);
+            this.inspect_menu_button.TabIndex = 3;
+            this.inspect_menu_button.TabStop = false;
+            this.inspect_menu_button.Text = "檢視 (I)";
+            this.inspect_menu_button.UseVisualStyleBackColor = true;
+            this.inspect_menu_button.Click += new System.EventHandler(this.inspect_menu_button_Click);
+            // 
             // BMS_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -126,5 +139,6 @@
         private System.Windows.Forms.Button cancel_button;
         private System.Windows.Forms.Button delete_menu_button;
         private System.Windows.Forms.Button modify_menu_button;
+        private System.Windows.Forms.Button inspect_menu_button;
     }
 }

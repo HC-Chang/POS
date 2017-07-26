@@ -58,6 +58,13 @@ namespace POS
             bms_form.ShowDialog();
         }
 
+        // 確認點餐
+        private void Order_Checked_Button_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
         #endregion
 
 
@@ -133,6 +140,6 @@ namespace POS
             }
         }
 
-        
+
     }
 }

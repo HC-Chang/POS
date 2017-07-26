@@ -35,7 +35,7 @@
             this.ts_ts_button = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.bms_ts_button = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.Order_Checked_Button = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.menu_listBox = new System.Windows.Forms.ListBox();
@@ -55,7 +55,7 @@
             this.ts_ts_button,
             this.toolStripSeparator1,
             this.bms_ts_button,
-            this.toolStripButton1,
+            this.Order_Checked_Button,
             this.toolStripSeparator3});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
@@ -101,15 +101,16 @@
             this.bms_ts_button.Text = "後臺管理系統 (B)";
             this.bms_ts_button.Click += new System.EventHandler(this.bms_ts_button_Click);
             // 
-            // toolStripButton1
+            // Order_Checked_Button
             // 
-            this.toolStripButton1.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(60, 22);
-            this.toolStripButton1.Text = "確認點餐";
+            this.Order_Checked_Button.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.Order_Checked_Button.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.Order_Checked_Button.Image = ((System.Drawing.Image)(resources.GetObject("Order_Checked_Button.Image")));
+            this.Order_Checked_Button.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.Order_Checked_Button.Name = "Order_Checked_Button";
+            this.Order_Checked_Button.Size = new System.Drawing.Size(60, 22);
+            this.Order_Checked_Button.Text = "確認點餐";
+            this.Order_Checked_Button.Click += new System.EventHandler(this.Order_Checked_Button_Click);
             // 
             // toolStripSeparator3
             // 
@@ -187,7 +188,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripButton bms_ts_button;
         private System.Windows.Forms.SplitContainer splitContainer1;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ToolStripButton Order_Checked_Button;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         public System.Windows.Forms.ListBox count_listBox;
         public System.Windows.Forms.ListBox menu_listBox;
