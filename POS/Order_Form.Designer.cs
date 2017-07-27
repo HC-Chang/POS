@@ -164,8 +164,10 @@
             this.ClientSize = new System.Drawing.Size(535, 362);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.toolStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Order_Form";
             this.Text = "Form1";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Order_Form_FormClosing);
             this.Load += new System.EventHandler(this.Order_Form_Load);
             this.toolStrip1.ResumeLayout(false);
