@@ -48,6 +48,7 @@ namespace POS
 
             // 顯示資料
             display_data();
+
         }
 
         #region  功能列表 - tool strip button
